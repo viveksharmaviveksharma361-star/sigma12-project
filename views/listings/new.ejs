@@ -3,45 +3,50 @@
         <div class="col-8 offset-2">
             </br></br>
             <h3>Create New Listing</h3>
-            <form method="POST" action="/listings" novalidate class="needs-validation">
+            <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input name="listing[title]" placeholder="Enter title" type="text" class="form-control" required />
+                    <input name="listing[title]" placeholder="Enter title" type="text" required>
                     <div class="valid-feedback">Title looks good</div>
                 </div>
 
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="listing[description]" placeholder="Enter details" class=" form-control"
-                        required></textarea>
+                    <textarea name="listing[description]" placeholder="Enter details" required></textarea>
                     <div class="invalid-feedback">Please give me short description</div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="image" class="form-label">Image Link</label>
-                    <input name="listing[image]" placeholder="Enter image" type="text" class="form-control">
+                    <label for="image" class="form-label">Upload Listing Image</label>
+                    <input name="listing[image]" type="file" class="form-control"> required
                     <div class="invalid-feedback">Image should be given</div>
                 </div>
+                <!-- 
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image Link</label>
+                    <input name="listing[image]" placeholder="enter Image/URL link" type="text" class="form-control">
+                    <div class="invalid-feedback">Image should be given</div>
+                </div> -->
+
+
                 <div class="row">
                     <div class="mb-3 col-4">
                         <label for="price" class="form-label">Price</label>
-                        <input name="listing[price]" placeholder="Enter Number" class="form-control" required />
+                        <input name="listing[price]" placeholder="Enter Number" required />
                         <div class="invalid-feedback">Price should be given</div>
                     </div>
 
                     <div class="mb-3 col-8">
                         <label for="country" class="form-label">Country</label>
-                        <input name="listing[country]" placeholder="Enter country" type="text" class="form-control"
-                            required />
+                        <input name="listing[country]" placeholder="Enter country" type="text" required />
                         <div class="invalid-feedback">give a country name</div>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="location" class="form-label">Goa</label>
-                    <input name="listing[location]" placeholder="Enter loaction" type="text" class="form-control"
-                        required />
+                    <input name="listing[location]" placeholder="Enter loaction" type="text" required />
                     <div class="invalid-feedback">give a right location</div>
                 </div>
 
