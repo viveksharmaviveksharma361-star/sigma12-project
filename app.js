@@ -20,7 +20,7 @@ const Review = require("./models/review.js");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
-const User = require("./models/user.js");
+// const User = require("./models/user.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 
@@ -88,7 +88,7 @@ const sessionOptions = {
 //     // res.send("Hi i  am root")
 // });
 
-
+const User = require("./models/user.js");
 app.use(session(sessionOptions));
 app.use(flash());
 app.use(passport.initialize());
