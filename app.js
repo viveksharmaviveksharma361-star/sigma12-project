@@ -20,16 +20,17 @@ const Review = require("./models/review.js");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
+const User = require("./models/user.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const User = require("./models/user.js");
+
 const listingRouter = require("./routes/listing.js")
 const reviewRouter = require("./routes/review.js")
 const userRouter = require("./routes/user.js");
 
 
 // let MONGO_URL = ("mongodb://127.0.0.1:27017/wanderlust")
-const dbUrl = process.env.ATLASDB_URL || "mongodb://127.0.0.1:27017/wanderlust"
+const dbUrl = process.env.ATLASDB_URL;
 async function main() {
     await mongoose.connect(dbUrl);
 }
