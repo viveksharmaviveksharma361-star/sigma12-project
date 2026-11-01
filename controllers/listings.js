@@ -31,10 +31,10 @@ module.exports.showListing = async (req, res) => {
 
 
 module.exports.createListing = async (req, res) => {
-    let response = await geocodingClient.forwardGeocode({
-        query: req.body.listing.location,
-        limit: 1,
-    }).send();
+    // let response = await geocodingClient.forwardGeocode({
+    //     query: req.body.listing.location,
+    //     limit: 1,
+    // }).send();
 
 
 
@@ -51,10 +51,15 @@ module.exports.createListing = async (req, res) => {
     }
     let newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
+    newListing.geometry = {
+        type: "Point",
+        cooordinates: [77.2090, 28.6139]
+    };
     newListing.image = { url, filename };
     if (response.body.features.length > 0) {
         newListing.geometry = response.body.features[0].geometry;
     }
+
     let savedListing = await newListing.save();
     console.log(savedListing);
     req.flash("success", "You are not owner of the this review");
