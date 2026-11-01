@@ -49,9 +49,10 @@ module.exports.createListing = async (req, res) => {
     } else if (typeof listing.image === "string") {
         listing.image = { url: listing.image };
     }
-    newListing.image = { url, filename };
+
     let newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
+    newListing.image = { url, filename };
     newListing.geometry = {
         type: "Point",
         cooordinates: [77.2090, 28.6139]
